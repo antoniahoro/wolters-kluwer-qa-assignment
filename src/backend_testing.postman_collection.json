@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "8f2e678f-3b57-4f9e-9bc4-94370f06d740",
+		"name": "backend_testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15236887"
+	},
+	"item": [
+		{
+			"name": "getUsersListResponse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Function to check if an array has duplicate elements",
+							"function checkUniqueUserNames (array)",
+							"{",
+							"    for(var i = 0; i < array.length; i++)",
+							"    {",
+							"        for(var j = i + 1; j < array.length; j++)",
+							"        {",
+							"            if (array[i] == array[j])",
+							"            {",
+							"                console.log(\"Duplicate array element\")",
+							"                return false",
+							"            }",
+							"        }",
+							"    }",
+							"    return true",
+							"};",
+							"",
+							"// Test non-functional requirement \"Requests should complete within 500ms\"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    const jsonData = pm.response;",
+							"    pm.expect(jsonData).to.have.status(200);",
+							"    pm.expect(jsonData.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"//  Test functional requirement \"Users are unique\"",
+							"pm.test(\"Users are unique\", function () {",
+							"    const jsonData = pm.response.json();",
+							"    var user_names = []",
+							"",
+							"    for(var i = 0; i < jsonData.length; i++)",
+							"    {",
+							"        user_names.push(jsonData[i].username);",
+							"    }",
+							"    // console.log(user_names);",
+							"",
+							"    var result = checkUniqueUserNames(user_names);",
+							"    pm.expect(result).to.be.true;",
+							"",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
