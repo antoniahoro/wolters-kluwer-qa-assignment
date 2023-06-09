@@ -73,7 +73,7 @@ Check src/frontend_testing/requirements.txt before executing the code.
 
 - Open a Pytho IDE (eg. Pycharm).
 - Open the project src.
-- [Configure a Python virtual environmnet](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html#python_create_virtual_env).
+- [Configure a Python interpreter](https://www.jetbrains.com/help/pycharm/configuring-local-python-interpreters.html)).
 - Open src/frontend_testing/tests/add_user_test.py.
 - Make sure you have Chrome browser installed.
 - Run the tests from class AddUserTest.
