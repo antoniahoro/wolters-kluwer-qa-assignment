@@ -52,3 +52,49 @@ Please carefully read what you need to do and what not to do. The assignment con
 ## Backend only tasks
 
 - [ ] Cover 2 [requirements](docs/requirements.md) from the specifications with **API tests**. Choose the ones you find most important. Pick a testing framework you feel most comfortable with;
+
+
+# How to run the tests loocally
+
+- [ ] Solution: https://github.com/antoniahoro/wolters-kluwer-qa-assignment.git
+- [ ] Branch: test-antonia
+
+## Frontend and Backend tasks - Exploratory testing
+
+Issues discovered during exploratory testing cand be found here: src/exploratory_testing.
+This folder contains:
+- [ ] a description of the issues: src/exploratory_testing/exploratory_testing_issues.xlsx
+- [ ] attachments for each issue (.png files)
+
+## Frontend only tasks - solution
+
+**End-to-End tests** can be found here: src/frontend_testing.
+Check src/frontend_testing/requirements.txt before executing the code.
+
+- Open a Pytho IDE (eg. Pycharm).
+- Open the project src.
+- [Configure a Python virtual environmnet](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html#python_create_virtual_env).
+- Open src/frontend_testing/tests/add_user_test.py.
+- Make sure you have Chrome browser installed.
+- Run the tests from class AddUserTest.
+
+
+## Backend only tasks - solution
+
+**API tests** can be found here: src/backend_testing.postman_collection.json.
+
+Setup:
+- Download the collection from src/backend_testing.postman_collection.json
+- Install Postman desktop app. See [Installing and updating Postman](https://learning.postman.com/docs/getting-started/installation-and-updates/). You cand also use the [Postman web app](https://web.postman.co/home) if you don't want to install it.
+- In Postman > Create your own workspace .
+- Import backend_testing.postman_collection.json into your workspace. the request can be found in Collections section.
+- Go to Environments section and select Create Environment.
+- Give an environment name and create an environment variable:
+    - Variable = base_url
+    - Initial Value = http://127.0.0.1:3003
+- Save the variable using Save button.
+- Return to the Collections section.
+- Select the getUsersListResponse request.
+- From No Environment tab select your environment.
+- Send the request.
+- Results can be found in Test Results.
